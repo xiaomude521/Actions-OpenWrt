@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.10.4/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.10.4/g' openwrt/package/base-files/files/bin/config_generate
 
 # Modify default theme
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -20,7 +20,7 @@
 sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
 # Modify banner with dynamic version (可选)
-cat > package/base-files/files/etc/banner << 'EOF'
+cat > openwrt/package/base-files/files/etc/banner << 'EOF'
 _________
     /        /\      _    ___ ___  ___
    /  LE    /  \    | |  | __|   \| __|
