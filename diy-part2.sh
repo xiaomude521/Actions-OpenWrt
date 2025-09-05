@@ -5,6 +5,9 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
+# 进入 openwrt 目录
+cd openwrt
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.4/g' package/base-files/files/bin/config_generate
 
@@ -14,8 +17,12 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # Modify hostname
 sed -i 's/option hostname LEDE/option hostname OpenWrt/g' package/base-files/files/bin/config_generate
 
+# 确保目录存在
+mkdir -p package/base-files/files/etc/
+
 # 简化版：只修改banner使用%D占位符
-cat > package/base-files/files/etc/banner << 'EOF'
+cat > package/base-files/files/etc/banner << 
+'EOF'
 _________
     /        /\      _    ___ ___  ___
    /  LE    /  \    | |  | __|   \| __|
