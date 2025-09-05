@@ -20,16 +20,13 @@ sed -i 's/option hostname LEDE/option hostname OpenWrt/g' package/base-files/fil
 # 确保目录存在
 mkdir -p package/base-files/files/etc/
 
-# 简化版：只修改banner使用%D占位符
-cat > package/base-files/files/etc/banner << 
-'EOF'
-_________
-    /        /\      _    ___ ___  ___
-   /  LE    /  \    | |  | __|   \| __|
-  /    DE  /    \   | |__| _|| |) | _|
- /________/  LE  \  |____|___|___/|___|
- \        \   DE /
-  \    LE  \    /  -------------------------------------------
-   \  DE    \  /    %D
-    \________\/    -------------------------------------------
-EOF
+# 使用 echo 命令逐行写入 banner 内容（避免 HERE document 语法问题）
+echo "_________" > package/base-files/files/etc/banner
+echo "    /        /\      _    ___ ___  ___" >> package/base-files/files/etc/banner
+echo "   /  LE    /  \    | |  | __|   \| __|" >> package/base-files/files/etc/banner
+echo "  /    DE  /    \   | |__| _|| |) | _|" >> package/base-files/files/etc/banner
+echo " /________/  LE  \  |____|___|___/|___|" >> package/base-files/files/etc/banner
+echo " \        \   DE /" >> package/base-files/files/etc/banner
+echo "  \    LE  \    /  -------------------------------------------" >> package/base-files/files/etc/banner
+echo "   \  DE    \  /    %D" >> package/base-files/files/etc/banner
+echo "    \________\/    -------------------------------------------" >> package/base-files/files/etc/banner
