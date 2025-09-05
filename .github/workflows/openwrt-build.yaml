@@ -92,7 +92,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware_$(date +"%Y%m%d")
+        name: openwrt-firmware-${{ date 'YYYYMMDD' }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tag
