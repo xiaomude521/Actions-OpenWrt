@@ -54,13 +54,14 @@ jobs:
       run: |
         [ -e files ] && cp -r files openwrt/files
         [ -e $CONFIG_FILE ] && cp $CONFIG_FILE openwrt/.config
-        [ -e $DIY_P2_SH ] && chmod +x $DIY_P2_SH && ./$DIY_P2_SH
+
 
     - name: Download package
       id: package
       run: |
         cd openwrt
         make defconfig
+        [ -e $DIY_P2_SH ] && chmod +x $DIY_P2_SH && ./$DIY_P2_SH
         make download -j8
         find dl -size -1024c -exec rm -f {} \;
 
