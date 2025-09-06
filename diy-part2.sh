@@ -5,8 +5,6 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# 进入 openwrt 目录
-cd openwrt
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.4/g' package/base-files/files/bin/config_generate
